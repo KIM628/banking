@@ -6,9 +6,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import Footer from "./Footer";
+import PlaidLink from "./PlaidLink";
 
-const SideBar = ({ user }: SiderbarProps) =>
-{
+const SideBar = ({ user }: SiderbarProps) => {
   const pathname = usePathname()
 
   return (
@@ -26,8 +26,7 @@ const SideBar = ({ user }: SiderbarProps) =>
           />
           <h1 className="sidebar-logo">Horizon</h1>
         </Link>
-        {sidebarLinks.map((item) =>
-        {
+        {sidebarLinks.map((item) => {
           const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`)
 
           return (
@@ -52,7 +51,7 @@ const SideBar = ({ user }: SiderbarProps) =>
         })}
 
 
-        USER
+        <PlaidLink user={user} />
       </nav>
 
       <Footer user={user} />
